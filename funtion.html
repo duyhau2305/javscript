@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>function</h1>
+    <script>
+        function sum(a,b) {
+            const dive= a / b;
+            const plus = a+b;
+            const subtract = a- b;
+            return {
+                dive,
+                plus,
+                subtract,
+            }
+
+        }
+        const sumres = sum(20,5);
+        console.log('sumres', sumres);
+        // http request
+        function HttpRequest(host,port) {
+            this.host=host;
+            this.port=port;
+        }
+        // method
+        HttpRequest.prototype.print= function() {
+            console.log('print: ',this.host,this.port);
+        }
+        const httpRequest= new HttpRequest('local', 3000);
+        httpRequest.print();
+
+
+    </script>
+</body>
+</html>

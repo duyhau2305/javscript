@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //number,NaN
+    const num=1;
+    console.log('number: ', Number('123'));
+    console.log('number is NaN:',Number('truong'));
+    console.log('check type:', typeof {});
+    // typeof
+    function isOdd(param1) {
+        if( typeof param1 !== 'number'){
+            return 'param is not a number'
+        }
+        if( typeof param1 == 'object'){
+            return 'param is object'
+        }
+        if( typeof param1 == 'function'){
+            return 'param is function'
+        }
+        if (param1 % 2==0) {
+            return 'Number is even'
+        }
+        return ' Number is odd'
+
+    }
+
+
+
+    </script>
+</body>
+</html>

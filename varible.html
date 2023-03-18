@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var lastname;  // hoisting
+       var firstname= 'hau' //global variable
+       // variable
+       function abc() {
+         var f='truong'; // local variable
+         console.log ( ' onsite: ',{f,firstname});
+       }
+       abc();
+       console.log('global var:', firstname);
+       // hoisting (access var before declare)
+       console.log('hoisting: ', {lastname}); //undifine
+       lastname= 'Jhon';
+       console.log('assign hoisting: ',{lastname}) //Jhon
+       // var function scope, global scope
+       var xVar=1;
+       if (xVar===1) {
+            xVar=2;
+            console.log('xvar: ',xVar); //2
+       }
+       console.log('xvar: ',xVar); //2
+       // let is not hoisting
+       let xLet =1;
+       if (xLet===1) {
+        let xLet =2;
+        console.log('xLet: ',xLet) //2
+       }
+       console.log('xLet: ', xLet) //1
+
+    </script>
+</body>
+</html>
