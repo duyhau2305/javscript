@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Destructuring</h1>
+  
+    <script>
+      const obj= { a: 1,b: 2} 
+      const {a,b} = obj;
+      console.log({a,b});
+      const bodyData = {
+      name: 'truong',
+      age: 30,
+      address: 'hanoi',
+      year: null,
+      color: undefined,
+      showroom: {
+        name: 'truong showroom',
+        address: 'hanoi'
+      }
+    }
+    const color = 'red'
+    // function cars({name,age,address,year = 'N/A', color='black'}) {
+    //     return 
+    //     // '
+    //         <li> Name:${name} </li>
+    //         <li> Age:${age} </li>
+    //         <li>address:${address}</li>
+    //         <li>year:${year}</li>
+    //         <li>color:${color}</li>
+        
+    //     ';
+    // }
+    // console.log(cars(bodyData));
+    function sum(a, b ,c = 0, d= 0) {
+        return a+b+c+d;
+    }
+    const sumABCD = sum(1,2);
+    console.log(sumABCD)
+    //rename 
+    const {color: bodyDataColor, name} = bodyData;
+    console.log(bodyDataColor);
+    //swap item 
+    let soucre = 1 ;
+    let dess = 3;
+    [soucre,dess] = [dess, soucre];
+    console.log({soucre,dess});
+    // dele igore 
+    const {color: tempColor, ...rest} = bodyData;
+    console.log(rest);
+    nested 
+    const {
+        showroom: {
+            name: showroomName
+        }
+    } = bodyData;
+    console.log(showroomName);
+    // arry destructuring
+    const todo = [
+        {
+            id: 1,
+            title: 'todo1',
+        },
+        {
+            id: 2,
+            title:'todo2',
+        }
+    ]
+    const [todo1,todo2] = todos;
+    console({todo1, todo2});
+    
+
+     </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>  const grades = [
+    {name: 'John', grade: 8, sex: 'M'},
+    {name: 'Sarah', grade: 12, sex: 'F'},
+    {name: 'Bob', grade: 16, sex: 'M'},
+    {name: 'Johnny', grade: 2, sex: 'M'},
+    {name: 'Ethan', grade: 4, sex: 'M'},
+    {name: 'Paula', grade: 18, sex: 'F'},
+    {name: 'Donald', grade: 5, sex: 'M'},
+    {name: 'Jennifer', grade: 13, sex: 'F'},
+    {name: 'Courtney', grade: 15, sex: 'F'},
+    {name: 'Jane', grade: 9, sex: 'F'}
+  ];
+  
+  // Lọc danh sách học sinh là nam
+  const males = grades.filter((student) => student.sex === 'M');
+  // Lấy thứ hạng của các học sinh nam
+  const maleGrades = males.map((student) => student.grade);
+  // Tính trung bình thứ hạng của các học sinh nam
+  const maleAverage = maleGrades.reduce((acc, grade) => acc + grade, 0) / males.length;
+  
+  // Lọc danh sách học sinh là nữ
+  const females = grades.filter((student) => student.sex === 'F');
+  // Lấy thứ hạng của các học sinh nữ
+  const femaleGrades = females.map((student) => student.grade);
+  // Tính trung bình thứ hạng của các học sinh nữ
+  const femaleAverage = femaleGrades.reduce((acc, grade) => acc + grade, 0) / females.length;
+  
+  // Tính trung bình thứ hạng của cả lớp
+  const classAverage = grades.reduce((acc, student) => acc + student.grade, 0) / grades.length;
+  
+  console.log(`Trung bình thứ hạng của nam là: ${maleAverage}`);
+  console.log(`Trung bình thứ hạng của nữ là: ${femaleAverage}`);
+  console.log(`Trung bình thứ hạng của cả lớp là: ${classAverage}`);
+  
+  </script>
+</body>
+</html>

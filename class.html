@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class HttpRequest {
+            constructor (host, port) {
+                this.host = host;
+                this.port = port;
+            }
+            static secrect() {
+                console.log('secrect');
+
+            }
+            print() {
+                console.log('print: ',this);
+            }
+            create() {
+                console.log( this.host, this.port);
+            }
+        }
+        const httpRequest =  new HttpRequest('Local Host', '3000')
+        httpRequest.create();
+        //httpRequest.secrect() error
+        HttpRequest.secrect();
+        // extend class
+        // cat, dog => method : an, ngu,name
+        // animal => an,ngu,name ,weight
+        // cat=> meomeo
+        //dog =. gau
+        class Animal {
+            constructor (name,mins) {
+                this.name = name;
+                this.mins = mins;
+            }
+            printName() {
+                console.log('name', this.name)
+            }
+            eat(obj) {
+                console.log('eat ', obj)
+            }
+            sleep() {
+                console.log('sleep',this.mins)
+            }
+        }
+        class Dog extends Animal {
+            constructor (name,mins) {
+                super(name,mins)
+            }
+        }
+        class Cat extends Animal {
+            constructor(name,mins,voice) {
+                super(name,mins)
+                this.voice = voice
+            }
+            brak() {
+                console.log(this.brak)
+            }
+        }
+        const dog = new Dog ('du','30')
+        dog.printName();
+        dog.eat();
+        dog.sleep();
+        const cat = new Cat ('abc','30', 'mewmow')
+        cat.printName();
+        cat.eat();
+        cat.brak();
+
+
+    </script>
+</body>
+</html>

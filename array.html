@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    
+        const animals = ['pig', 'dog', 'cat'];
+        const pusharr = animals.push('chicken');
+        const poparr = animals.pop()
+        console.log ('push,pop : ', {pusharr, poparr});
+        //
+        const todoItem = {
+            id: 3,
+            text: 'learn JS'
+        }
+        const todoList = [
+            {id: 1, text: ' learn JAV'},
+            {id: 2, text: ' learn JV2'},
+            {id: 3, text: ' learn JV'},
+            {id: 4, text: ' learn JAV1'}
+
+    ]
+        // delete 
+        const todoIndex = todoList.findIndex(todo => todoItem.id=== todo.id);
+        const cloneTodolist = [...todoList]
+        if (todoIndex !==-1) {
+            cloneTodolist.splice(todoIndex,1)
+        }
+        console.log('splice ', cloneTodolist)
+        // map 
+        const cloneMap = todoList(todo => {
+            return {
+                ...todo,
+                completed: false
+            }
+        })
+        console.log('clonedtodoMap ',cloneMap)
+        // 
+        const objectnum = [
+            {x:1} , {x:2}, {x:3}
+        ]
+        const sumValueOfObject = objectnum.reduce((acc,currValue) => {
+            // acc=3
+            // currValue = {x:3}
+            return acc+currValue.x // 1st: 1, 2rd: 3, 3rd: 6
+        },0)
+        console.log('sumValueofObject: ',sumValueOfObject)
+        const carts = [
+            {
+                id: 1,
+                name : 'bmw',
+                price: 500
+            },
+            {
+                id: 1,
+                name : 'iphone',
+                price: 1500
+            },
+            {
+                id: 1,
+                name : 'honda',
+                price: 35500
+            }
+        ]
+    
+        const sumofcarts = carts.reduce((acc,currValue) =>{
+
+            return acc+ currValue.price
+        },0)
+        console.log('sumofCart: ',sumofcarts)
+
+        const flatternArr = [
+            [0,1],
+            [6,10],
+            [23,50]
+        ]
+        const flatterned = flatternArr.reduce((acc,currValue) => {
+            // acc [0,1]
+            // curr [6,10]
+            return acc.concat(currValue)
+        },[])
+        console.log(flatterned)
+        //  counting values in an object
+    const names = ["Truong", "Tony", "Hau", "Truong", "Truong", "Hau"]
+    const countingname = names.reduce((acc,currValue)=> {
+        acc[currValue]=(acc[currValue] || 0)+1;
+        return acc;
+
+    },  {} )
+    console.log(countingname);
+    /*
+      output
+      {
+        'Truong': 3,
+        'Tony': 1,
+        'Hau': 2
+      }
+    */
+
+    // group object by a property
+    const arraySomeThing = [
+      { name: 'Truong', age: 20 },
+      { name: 'Hau', age: 20 },
+      { name: 'Tony', age: 32 },
+      { name: 'Duy', age: 21 }
+    ]
+    const groups= arraySomeThing.reduce((acc,currvalue) => {
+        if(!acc[currvalue]) {
+            return acc[currvalue]=[] 
+        }
+         acc[currvalue].push('age')
+         return acc
+
+    },{})
+    console.log(groups)
+    /*
+      output group by age
+      {
+        20: [
+          { name: 'Truong', age: 20 },
+          { name: 'Hau', age: 20 },
+        ],
+        32: [
+          { name: 'Tony', age: 32 },
+        ],
+        21: [
+          { name: 'Duy', age: 21 }
+        ]
+      }
+    */
+
+
+    </script>
+</body>
+</html>

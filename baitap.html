@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bai Array reduce</h1>
+    <script>
+        const friends = [
+                {
+                    name: "Anna",
+                    books: ["Bible", "Harry Potter"],
+                    age: 21,
+                },
+                {
+                    name: "Bob",
+                    books: ["War and peace", "Romeo and Juliet"],
+                    age: 26,
+                },
+                {
+                    name: "Alice",
+                    books: ["The Lord of the Rings", "The Shining"],
+                    age: 18,
+                },
+        ];
+        // [
+//   'Alphabet', 'Bible', 'Harry Potter', 'War and peace',
+//   'Romeo and Juliet', 'The Lord of the Rings',
+//   'The Shining'
+// ] 
+    const concatBooks= friends.reduce((acc,currValue)=>{
+        return acc.concat(currValue.books)      
+
+    },[])
+    console.log(concatBooks)
+    </script>
+    <h2>Bai sort</h2>
+    <script>    
+    const items = [
+      { name: "Edward", value: 21 },
+      { name: "Sharpe", value: 37 },
+      { name: "And", value: 45 },
+      { name: "The", value: -12 },
+      { name: "Magnetic", value: 13 },
+      { name: "Zeros", value: 37 },
+    ]
+    //sort by value tang dan
+    function compareValue (a,b) {
+        const valueA = a.value ;
+        const valueB = b.value;
+        let comparison = 0
+        if (valueA < valueB ) { comparison = -1};
+        if (valueA > valueB ) {comparison  = 1 };
+        return comparison
+    }
+    const Res=items.sort(compareValue);
+    console.log(Res)
+    function compareName1(a,b) {
+        const nameA = a.name ;
+        const nameB = b.name ;
+        let comparison1 = 0
+        if (nameA < nameB ) { comparison1= -1};
+        if (nameA > nameB ) {comparison1  = 1 };
+        return comparison1
+        
+    }
+    const Res1=items.sort(compareName1);
+    console.log(Res1)
+    
+
+
+    </script>
+    
+</body>
+</html>

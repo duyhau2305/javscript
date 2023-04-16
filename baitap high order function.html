@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>  const grades = [
+    {name: 'John', grade: 8, sex: 'M'},
+    {name: 'Sarah', grade: 12, sex: 'F'},
+    {name: 'Bob', grade: 16, sex: 'M'},
+    {name: 'Johnny', grade: 2, sex: 'M'},
+    {name: 'Ethan', grade: 4, sex: 'M'},
+    {name: 'Paula', grade: 18, sex: 'F'},
+    {name: 'Donald', grade: 5, sex: 'M'},
+    {name: 'Jennifer', grade: 13, sex: 'F'},
+    {name: 'Courtney', grade: 15, sex: 'F'},
+    {name: 'Jane', grade: 9, sex: 'F'}
+  ];
+  // Tìm thứ hạng trung bình của cả lớp
+  // Tìm thứ hạng trung bình của nam trong lớp
+  // Tìm thứ hạng trung bình của Nữ trong lớp
+  // Tìm thứ hạng cao nhất của Nam trong lớp
+  // Tìm thứ hạng cao nhất của Nữ trong lớp 
+  // Tìm thứ hạng thấp nhất của Nam trong lớp 
+  // Tìm thứ hạng thấp nhất của Nữ trong lớp 
+  // Tìm thứ hạng cao nhất của cả lớp 
+  // Tìm thứ hạng thấp nhất của cả lớp
+  
+  // Lọc danh sách học sinh là nam
+  const males = grades.filter((student) => student.sex === 'M');
+  // Tính trung binh thứ hàng của nam
+  const maleAverage = males.reduce((acc, curr) => acc + curr.grade, 0) / males.length;
+
+  // Lọc danh sách học sinh là nữ
+  const females = grades.filter((student) => student.sex === 'F');
+    // Tính trung bình thứ hạng của các học sinh nữ
+  const femaleAverage = females.reduce((acc, curr) => acc + curr.grade, 0) / females.length;
+  
+  // Tính trung bình thứ hạng của cả lớp
+  const classAverage = grades.reduce((acc, student) => acc + student.grade, 0) / grades.length;
+  
+  console.log(`Trung bình thứ hạng của nam là: ${maleAverage}`);
+  console.log(`Trung bình thứ hạng của nữ là: ${femaleAverage}`);
+  console.log(`Trung bình thứ hạng của cả lớp là: ${classAverage}`);
+  // tìm thứ hạng thấp nhất của lớp
+  grades.sort(function(a, b) {
+     return a.grade - b.grade;
+    });
+
+  // lấy phần tử đầu tiên của mảng (thứ hạng thấp nhất)
+  const lowestGrade = grades[0].grade;
+  console.log('Thu hang thap nhat la: ' ,lowestGrade);
+  // tìm thứ hạng thấp nhất của lớp
+  grades.sort(function(a, b) {
+     return b.grade - a.grade;
+    });
+
+  // lấy phần tử đầu tiên của mảng (thứ hạng thấp nhất)
+  const highestGrade = grades[0].grade;
+  console.log('Thu hang thap nhat la: ' ,highestGrade);
+  </script>
+</body>
+</html>

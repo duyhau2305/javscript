@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>SORT</h1>
+    <script>
+        const numbs = [1, 30, 4, 20, 10000];
+        function compareSort(a,b) {
+            if (a < b ) return -1 // sort a before b [a,b]
+            if (a > b ) return 1 // sort a after b [b,a]
+        }
+        const numberSort = numbs.sort((a,b)=>compareSort(a,b))
+        console.log(numberSort)
+
+
+    </script>
+</body>
+</html>
