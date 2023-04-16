@@ -1,0 +1,131 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const arraySomeThing = [
+        { name: 'Truong', age: 20 },
+        { name: 'Hau', age: 20 },
+        { name: 'Tony', age: 32 },
+        { name: 'Duy', age: 21 }
+    ]   
+    /*
+      output group by age
+      {
+        20: [
+          { name: 'Truong', age: 20 },
+          { name: 'Hau', age: 20 },
+        ],
+        32: [
+          { name: 'Tony', age: 32 },
+        ],
+        21: [
+          { name: 'Duy', age: 21 }
+        ]
+      }
+    */
+
+    function groups(property) {
+        const res =  arraySomeThing.reduce((acc,currValue)=> {
+            const key = currValue[property] //  const key = arrSomething['age'];
+            if (!acc[key]) {
+                acc[key] = []
+            }
+            acc[key].push(currValue) 
+            return acc
+        }, {})
+        return res
+    }
+    /*
+    loop 1: 
+        acc = {}
+        currVualue=  { name: 'Truong', age: 20 },
+        const key= '20'
+        if (!{}) {
+           '20'=[]
+        }
+        [].push({ name: 'Truong', age: 20 })
+    loop 2
+        acc = {
+                 20: [
+                        { name: 'Truong', age : 20 }
+                    ]
+              }
+        currValue= { name: 'Hau', age: 20 },
+        const key= '20'
+        if (!{ name: 'Hau', age: 20 }) {
+           '20'=[]
+        }
+        [{ name: 'Truong', age : 20 }].push({  name: 'Hau', age: 20 })
+    loop 3
+        acc = {
+                 20: [
+                        { name: 'Truong', age : 20 },
+                        {  name: 'Hau', age: 20 }
+                    ]
+              }
+        currValue= { { name: 'Tony', age: 32 } },
+        const key= '32'
+        if (!{}) {
+           '32'=[]
+        }
+        [].push({ name: 'Tony', age: 32  })
+    loop 4
+        acc = {
+                 20: [
+                        { name: 'Truong', age : 20 },
+                        {  name: 'Hau', age: 20 }
+                    ]
+                 32: [
+                    { name: 'Tony', age: 32 }
+                ]
+                       
+              }
+        currValue= { name: 'Duy', age: 21 }
+        const key= '21'
+        if (!{}) {
+           '21'=[]
+        }
+        [].push({ name: 'Duy', age: 21 })
+        return acc = {
+                 20: [
+                        { name: 'Truong', age : 20 },
+                        {  name: 'Hau', age: 20 }
+                    ],
+                 32: [
+                        { name: 'Tony', age: 32 }
+                ],
+                21: [
+                        { name: 'Duy', age: 21 }
+                       
+                    ]
+                       
+              }
+        
+
+    */
+   
+
+
+        let groupedStudent = groups('age')
+        console.log(groupedStudent)
+        const initialNum = [-5,6,2,0]
+        // output=[12,4]
+        const doubleNUMs = initialNum.reduce((acc,currValue)=>{          
+            if (currValue > 0){
+                acc.push(currValue*2)
+            }            
+            return acc
+        },[])
+        console.log(doubleNUMs)
+        const orders = orders.reduce((tong,value)=>{
+            return tong+value.price
+        },)
+        console.log(orders)
+    </script>
+</body>
+</html>

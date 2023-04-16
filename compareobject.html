@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>compare</h1>
+    <script>
+    const carsA = {
+      id: 1, // number
+      name: 'BMW',  // string
+      price: 1000, 
+      color: 'red',
+      engine: {  // object
+        type: 'gas',
+        capacity: 2.0,
+        category: {
+          type: 'sport',
+          isAvailable: true
+        },
+        year: [2010, 2011, 2012] // array
+      },
+      features: ['airbag', 'abs', 'gps'], // array
+      isAvailable: true, // boolean
+    }
+    const carsB = {
+      id: 1, // number
+      name: 'BMW',  // string
+      price: 1000, 
+      color: 'red',
+      engine: {  // object
+        type: 'gas',
+        capacity: 2.0,
+        category: {
+          type: 'sport',
+          isAvailable: true
+        },
+        year: [2010, 2011, 2012] // array
+      },
+      features: ['airbag', 'abs', 'gps'], // array
+      isAvailable: true, // boolean
+    }
+    //shallow comarison
+    function shallowComparison(objA, objB) {
+        const keysA=Object.keys(objA);
+        const keysB=Object.keys(objB);
+        if (keysA.length!== keysB.length) {
+            return false
+        }
+        for ( const key of keysA) {
+            const valueA = objA[key];
+            const valueB = objB[key];
+            if (valuesA !== valuesB) {
+                return false;
+            }
+        }
+        return true;
+    }
+    const isShallowComparion = shallowComparison(carsA,carsB);
+    console.log('ishalowcomarion: ', isShallowComparion);
+    // deep comparison
+    function areObjects(value) {
+      return value != null && typeof value == 'object';
+    }
+    function deepComparison(objA, objB) {
+        const keysA=Object.keys(objA);
+        const keysB=Object.keys(objB);
+        if (keysA.length!== keysB.length) {
+            return false
+        }
+        const areObject = areObjects(valueA) && areObjects(valueB);
+        const isNetedObj = areObject && deepComparison(valueA,valueB);
+        const isValueObj = !areObject && valueA !== valueB;
+        if (isNetedObj || isValueObj) {
+          return false ;
+        }
+      
+        return true;
+    }
+    const isdeepComparion = deepComparison(carsA,carsB);
+    console.log('ishalowcomarion: ', isdeepComparion);
+
+
+
+
+    </script>
+    
+</body>
+</html>

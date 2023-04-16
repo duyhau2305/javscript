@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //single thread
+        function doHomework(subject,callback) { //high-order
+            if (typeof callback !== 'function') return;
+            console.log('starting my ${subject} homework');
+            //code logic
+            const sum = 1+1;
+            callback(sum);
+
+        }
+        doHomework('math', function(reSum){
+            console.log('finished homework ', reSum);
+
+        }) 
+        //Arow funtion dont have this
+        // Arow funtion to anymous function
+        const addTodo =  () => {
+            console.log('add toDo')
+        
+        }
+        addTodo();
+        // dont have this
+        const cars = {
+            name: "truong",
+            age: 30,
+            address: 'hanoi',
+            addTodo : function() {
+                console.log('addtodo', this);
+            },
+            removeTodo: () => {
+                console.log('removetodo', this)
+            }
+        }
+        cars.addTodo();
+        cars.removeTodo();
+        //specify arrow function
+        const sum = (a,b) => {
+            // code logic
+        }
+        const subtract =  x => {
+            // code logic
+        }
+        const mutilply = (a,b)=> a*b; // expression
+        const divide = (a,b) => { // block exxpression
+            return a/b;
+        } 
+        const returnObj = () => {
+            return {
+                firstname: 'truong',
+                lastname: 'nguyen'
+            }
+        };
+        const returnObj2= () => ([1,2,3,4])
+        // example 
+        const users = [
+            { id: 1, name: 'truong', age: 20, score: 24},
+            { id: 2, name: 'truong', age: 19, score: 21},
+            { id: 3, name: 'truong', age: 23, score: 19},
+        ];
+        const numberLagreThan20 = num => num > 20; // high order function
+        const usersFiltered = users.filter(user =>numberLagreThan20(user.age));
+        const scoreFiltered = users.filter(user => numberLagreThan20(user.score));
+        console({usersFiltered, scoreFiltered});
+        
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

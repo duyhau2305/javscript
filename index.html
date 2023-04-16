@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var orders = [
+           {
+            name : 'Khoá học HTML-CSS pro',
+            price : 3000000
+           },
+           {
+            name : 'Khoá học Javascript pro',
+            price : 2500000
+           },
+           {
+            name : 'Khoá học React pro',
+            price : 3200000
+           }
+        ]
+        const getTotal = orders.reduce((total,value) => {
+            return total+value.price;
+
+        },0)
+        console.log(getTotal)
+        
+        const getTotal2 = function() {
+            var tong = 0;
+            for (var i = 0 ; i <  orders.length;i++) {
+                return tong+=orders[i].price;
+              
+            } 
+        }
+        console.log(getTotal2(orders))
+
+
+
+       
+
+
+    </script>
+</body>
+</html>

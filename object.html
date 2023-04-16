@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Object</h1>
+    <script>
+        const cars = {
+      id: 1, // number
+      name: 'BMW',  // string
+      price: 1000, 
+      color: 'red',
+      engine: {  // object
+        type: 'gas',
+        capacity: 2.0,
+        category: {
+          type: 'sport',
+          isAvailable: true
+        },
+        year: [2010, 2011, 2012] // array
+      },
+      features: ['airbag', 'abs', 'gps'], // array
+      isAvailable: true, // boolean
+
+      // method
+      start: function() {
+        console.log('start engine', this);
+      },
+
+      stop: () => {
+        console.log('stop engine', this);
+      }
+    }
+    // acess object
+    const accesObjectway1 = cars.name();
+    const accesObjectway2 = cars['name'];
+    // access object with destructing
+    const {
+        nam,
+        engine: {
+            type,
+            category : {
+                isAvailable
+            }
+        },
+        color
+    } =cars;
+    cars.start();
+    cars.stop();
+    // loop object
+    const loopway1 = [];
+    for ( const key in cars) {
+        const value = cars[key];  // cars['id']
+        loopway1.push(
+            {
+                [key]:value
+            }
+        )
+    }
+    console.log('loopway1: ',loopway1);
+    // loop way 2
+    const loopway2 = Object.keys(cars).map(key=>{
+        const value = cars[key];
+        return {
+            [key]: value
+        }
+    })
+    // loop way 3
+    const loopway3 = Object.values([cars]);
+    console.log('loopway3: ', loopway3);
+    //loop way 4
+    // const loopway4 = Object.entries(cars).map((key, value) => {
+    //     return {
+    //         [key] = value
+    //     }
+    // });
+    // copy object
+    const person = {
+        firstName : 'truong',
+        lastName: 'nguyen',
+        age: 18
+
+    }
+    const persons = [
+        {
+            firstName: 'truong',
+            lastName: 'nguyen',
+            age: 18
+
+        }
+        {
+            firstName: 'hau',
+            lastName: 'nguyen',
+            ag: 50
+        }
+    ]
+    //shallow clone
+    const shallowCopyObject= [...persons];
+    persons(0).firstName= 'tony'
+    console.log('defuat shallow: ', persons);
+    console.log('after shallow: ', shallowCopyObject);
+    // deep clone
+    const deepcloneObject = JSON.parse(JSON.stringify(persons));
+    deepcloneObject(0).firstName = 'tony'
+    delete deepcloneObject(0).age;
+    console.log('defaut deepclone: ', persons);
+    console.log('after deepclone: ', deepcloneObject);
+    // way 3 copy
+    const copyObjectWay3 = Object.assign({}, cars, persons);
+    const copyObjectWay4 = { ...cars, ...persons};
+    const creatives = [
+        {
+            'creative1': true
+        },
+        {
+            'creative2': true
+        },
+        {
+            'creative3': true
+        }
+    ]
+    const targetCreativeID='creative2';
+    // change creative 2: false
+    // delete creative 2
+
+    const deepcloneCreatives=JSON.parse(JSON.stringify(creatives));
+    const creativesIndex  = deepcloneCreatives.findIndex( creative =>
+    {
+        return creative[targetCreativeID]===true|| creative[targetCreativeID]===false 
+    })
+        if(creativesIndex > -1 ) {
+            deepcloneCreatives.splice(creativesIndex,1)
+        }
+        console.log(deepcloneCreatives);
+        const creativeObject= {
+            'creative1' : true,
+            'creative2' : true,
+            'creative3' : true,
+
+        }
+        delete creativeObject[targetCreativeID];
+    
+
+
+    </script>
+    
+</body>
+</html>
