@@ -27,6 +27,25 @@
   // Tìm thứ hạng thấp nhất của Nữ trong lớp 
   // Tìm thứ hạng cao nhất của cả lớp 
   // Tìm thứ hạng thấp nhất của cả lớp
+
+  // filter Male
+  const isBoy = student => student.sex === 'M';
+  const isGirl = student => student.sex === 'F';
+  const average = grades => grades.reduce((acc, curr) => acc + curr.grade, 0) / grades.length;
+  const maxGrade = grades => Math.max(...grades.map(student => student.grade))  
+  const minGrade = grades => Math.min(...grades.map(student => student.grade))  
+  const getBoys = grades => grades.filter(isBoy);
+  const getGirls = grades => grades.filter(isGirl);  
+
+
+  // using HOF
+  // const classAverage = average(grades);
+  const boysAverage = average(getBoys(grades)); // get avegrage score of Male
+  const girlsAverage = average(getGirls(grades)); // get avegrage score of Female
+  const highestBoysGrade = maxGrade(getBoys(grades)); // get highest score of Male
+  const highestGirlsGrade = maxGrade(getGirls(grades)); // get highest score of Female
+
+
   
   // Lọc danh sách học sinh là nam
   const males = grades.filter((student) => student.sex === 'M');
@@ -52,12 +71,12 @@
   // lấy phần tử đầu tiên của mảng (thứ hạng thấp nhất)
   const lowestGrade = grades[0].grade;
   console.log('Thu hang thap nhat la: ' ,lowestGrade);
-  // tìm thứ hạng cao nhất của lớp
+  // tìm thứ hạng thấp nhất của lớp
   grades.sort(function(a, b) {
      return b.grade - a.grade;
     });
 
-  // lấy phần tử đầu tiên của mảng (thứ hạng cao nhất)
+  // lấy phần tử đầu tiên của mảng (thứ hạng thấp nhất)
   const highestGrade = grades[0].grade;
   console.log('Thu hang thap nhat la: ' ,highestGrade);
   </script>
